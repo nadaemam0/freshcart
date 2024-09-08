@@ -1,0 +1,12 @@
+<div class="container nav-margin w-25 mx-auto">
+    <h3>Forget password</h3>
+    <form      [formGroup]="verifyCodeForm" (ngSubmit)="verifyCode(verifyCodeForm)" >
+        <label for="resetCode">Enter Verification Code:</label>
+        <input type="text" id="resetCode" formControlName="resetCode" class="mb-2 form-control">
+        <button  class="btn bg-main d-block w-100 text-white">
+            <span >Verify Code</span>
+        </button>
+    </form>
+
+    </div>
+    

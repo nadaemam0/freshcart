@@ -1,0 +1,18 @@
+<div class="container my-5">
+    <div class="mx-auto w-50">
+        <h4>Shipping Address:</h4>
+        <form [formGroup]="shippingAddress">
+            <label for="details">Details:</label>
+            <input type="text" id="details" class="form-control mb-1">
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" class="form-control mb-1">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" class="form-control mb-1">
+
+            <button class="btn text-white bg-main w-100 mb-2 " (click)="cashPayment()">Chash on delivery</button>
+            <button class="btn text-white bg-main w-100 " (click)="onlinePayment()">Online Payment</button>
+        </form>
+    </div>
+</div>

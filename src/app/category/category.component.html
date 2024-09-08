@@ -1,0 +1,12 @@
+<owl-carousel-o [options]="customOptions" class="mt-4">
+        <ng-container *ngFor="let slide of allCategory">
+            <ng-template carouselSlide >
+              <a [routerLink]="['/categoryDetails',slide._id]" class="text-decoration-none text-black">
+              <img height="200" [src]="slide.image" >
+              <h5>{{slide.name}}</h5>
+            </a>
+            </ng-template>
+          </ng-container>
+        
+
+  </owl-carousel-o>

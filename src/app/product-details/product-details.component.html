@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row align-items-center p-5">
+        <div class="col-md-4">
+            
+            <owl-carousel-o [options]="customOptions" class="mt-4">
+            <ng-container *ngFor="let img of productDetails.images">
+                <ng-template carouselSlide >
+                  <img [src]="img" >
+                </ng-template>
+              </ng-container>  
+            </owl-carousel-o>
+              
+
+        </div>
+        <div class="col-md-8">
+            <h2>{{productDetails.title}}</h2>
+            <p>{{productDetails.description}}</p>
+            <div class="d-flex justify-content-between ">
+                <span>{{productDetails.price}} EG </span>
+                <div>
+                    <i class="fa fa-star rating-color"></i>
+                    {{productDetails.ratingsAverage}}
+                </div>
+            </div>
+            <div class="d-flex align-items-center ">
+            <button class="btn bg-main d-block add-to-cart text-white" (click)="addProductToCart(productDetails.id)">Add to cart</button>
+            <i class="fa fa-heart ms-auto add-to-wishes cursor-pointer" [style.color]="isLiked ? 'red' : 'gainsboro'" (click)="addToWishList(productDetails.id)"></i>
+        </div>
+        </div>
+
+    </div>
+</div>

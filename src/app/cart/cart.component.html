@@ -1,0 +1,30 @@
+<div class="container p-2 my-5">
+    <h2>Cart Destails:</h2>
+    <div class="bg-main-light" *ngIf="cartDetails?.data">
+        <div class="d-flex justify-content-between p-5">
+            <h4>Total item : <span class="text-main">{{cartDetails.numOfCartItems}}</span></h4>
+            <h4>Total price : <span class="text-main">{{cartDetails.data.totalCartPrice}}</span></h4>
+        </div>
+        <div class="row mb-2 py-2 border-top" *ngFor="let product of cartDetails.data.products |filterProducts">
+            <div class="col-md-1">
+                <img [src]="product.product.imageCover" class="w-100 ps-2" alt="">
+            </div>
+            <div class="col-md-9">
+                <div class="item">
+                    <h4>{{product.product.title}}</h4>
+                    <p class="text-main">{{product.product.category.name}}</p>
+                    <div class="d-flex align-items-center">
+                        <p class="text-main mb-0">{{product.price}} EG</p>
+                        <button (click)="removeProduct(product.product.id)" class="btn p-0 ms-4 text-danger" ><i class="fa-regular fa-trash-can"></i> Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mt-3">
+                <button class="btn btn-update" (click)="updateCartCount(product.count-1,product.product.id)">-</button>
+                <span class="mx-2">{{product.count}}</span>
+                <button class="btn btn-update" (click)="updateCartCount(product.count+1,product.product.id)">+</button>
+            </div>
+        </div>
+    </div>
+    <button class="mt-2 w-100 btn bg-main text-white" [disabled]="!cartDetails.data"  > <a [routerLink]="['/checkOut', cartDetails.data?._id]"  class="text-decoration-none text-white"> Continue to pay</a></button>
+</div>

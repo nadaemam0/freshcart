@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <h2 class="mb-3">Sign-In Now:</h2>
+    
+    <div *ngIf="apiMsg" class="alert alert-danger">
+        {{apiMsg}}
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" class="mb-2 form-control">
+    
+    <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('name')?.touched||isNotValid)" class="alert alert-danger">
+        <p *ngIf="loginForm.get('email')?.getError('required')" class="mb-0" >email is required</p>
+        <p *ngIf="loginForm.get('email')?.getError('email')" class="mb-0" >enter valid email</p>
+    </div>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" class="mb-2 form-control">
+    <div *ngIf="loginForm.get('password')?.errors && (loginForm.get('name')?.touched||isNotValid)" class="alert alert-danger">
+        <p *ngIf="loginForm.get('password')?.getError('required')" class="mb-0" >password is required</p>
+        <p *ngIf="loginForm.get('password')?.getError('pattern')" class="mb-0" >enter valid password</p>
+    </div>
+    <div class="d-flex">
+        <a routerLink="/forgetPassword" class="align-self-center">Forget password</a>
+
+    <button  class="btn bg-main d-block ms-auto text-white">
+        <span *ngIf="!isLoading">Sign-in</span>
+        <span *ngIf="isLoading"><i class="fa fa-spinner fa-spin"></i></span>
+    </button>
+    
+</div>
+    </form>
+    </div>

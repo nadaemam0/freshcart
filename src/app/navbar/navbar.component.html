@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-light ">
+    <div class="container">
+      <a class="navbar-brand" href="" >
+        <div class="d-flex justify-content-center align-items-center me-2">
+          <i class="fa-solid fa-cart-shopping  m-0" style="color: #0aad0a;"></i>        <p class="m-0">FreshCart</p>
+        </div>
+
+      </a>
+
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav me-auto">
+        
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="home" routerLinkActive="nav-hover">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="cart" routerLinkActive="nav-hover">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="wishList" routerLinkActive="nav-hover">wishList</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="products" routerLinkActive="nav-hover">Products</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="categories" routerLinkActive="nav-hover">Categories</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="brands" routerLinkActive="nav-hover">Brands</a>
+          </li>
+          
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="sign-in" routerLinkActive="nav-hover " *ngIf="!isLoggedIn">sign-in</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="sign-up" routerLinkActive="nav-hover" *ngIf="!isLoggedIn">sign-up</a>
+          </li>
+          <li (click)="logOut()" class="nav-item">
+            <span class="nav-link cursor-pointer" *ngIf="isLoggedIn"> log-Out</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>

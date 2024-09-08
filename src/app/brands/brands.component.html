@@ -1,0 +1,10 @@
+<div class="container nav-margin">
+<div class="row">
+    <div class="col-md-3 p-2" *ngFor="let brand of allBrands.data">
+        <div class="border border-2 border-dark rounded-2 cursor-pointer">
+            <img [src]="brand.image" class="p-2">
+            <h3 class="text-center m-2">{{brand.name}}</h3>
+        </div>
+    </div>
+</div>
+</div>
